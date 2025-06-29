@@ -1,6 +1,7 @@
 package com.diego_peirats.carbnb.infrastructure.producer;
 
 import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.Message;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class OfferProducer {
 	
+	@Autowired
 	private NewTopic topic;
 	
 	private KafkaTemplate<String, OfferEvent> kafkaTemplate;

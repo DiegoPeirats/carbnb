@@ -64,7 +64,7 @@ public class StrategyUtils {
 	public boolean isHighDemand() {
 		
 		int totalVehicles = repository.findAll().size();
-		int rentedVehicles = repository.findByStatusEqualsIgnoreCase(StatusType.RENTED).size();
+		int rentedVehicles = repository.findByStatus(StatusType.RENTED).size();
 		
 		return rentedVehicles / totalVehicles >= 0.8;
 	}

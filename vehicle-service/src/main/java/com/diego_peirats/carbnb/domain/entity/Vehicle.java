@@ -25,7 +25,7 @@ import vehicle.VehicleType;
 @Getter
 @Setter
 @Entity
-@Table(name= "users")
+@Table(name= "vehicles")
 public class Vehicle {
 	
 	@Id
@@ -37,6 +37,8 @@ public class Vehicle {
 	private String brand;
 	
 	private String address;
+	
+	private String plate;
 	
 	private Integer year;
 	

@@ -29,13 +29,13 @@ import vehicle.StatusType;
 @RequiredArgsConstructor
 public class VehicleServiceImpl implements VehicleService{
 	
-	private VehicleRepository repository;
+	private final VehicleRepository repository;
 	
-	private OfferProducer producer;
+	private final OfferProducer producer;
 	
-	private ModelMapper modelMapper;
+	private final ModelMapper modelMapper;
 	
-	private StrategyService priceService;
+	private final StrategyService priceService;
 
 	@Override
 	public ResponseEntity<VehicleDto> createVehicle(VehicleRequest request, URI location) {
@@ -100,7 +100,7 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	private ResponseEntity<List<VehicleDto>> getAvailableVehiclesByFilter(String location, PriceCalculationRequest request) {
-	    List<Vehicle> vehicles = repository.findByStatusEqualsIgnoreCase(StatusType.AVAILABLE);
+	    List<Vehicle> vehicles = repository.findByStatus(StatusType.AVAILABLE);
 
 	    if (vehicles.isEmpty()) 
 	        return ResponseEntity.noContent().build();
