@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import DTOs.UserDto;
 
-@FeignClient(name="stripe-client", path="/stripe-client")
+@FeignClient(name="payment-service", path="/payment-app/stripe/")
 public interface StripeClient {
 	
 	@PostMapping("/customer")
